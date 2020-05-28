@@ -8,6 +8,7 @@
 
     var cookieAlert = document.querySelector(".cookiealert");
     var acceptCookies = document.querySelector(".acceptcookies");
+    var discardCookies = document.querySelector(".discardcookies");
 
     if (!cookieAlert) {
        return;
@@ -23,9 +24,13 @@
     // When clicking on the agree button, create a 1 year
     // cookie to remember user's choice and close the banner
     acceptCookies.addEventListener("click", function () {
-        setCookie("acceptCookies", true, 365);
+        setCookie("acceptCookies", true, 1);
         cookieAlert.classList.remove("show");
     });
+    discardCookies.addEventListener("click", function() {
+        setCookie("acceptCookies", true, 0);
+        cookieAlert.classList.remove("show");
+    })
 
     // Cookie functions from w3schools
     function setCookie(cname, cvalue, exdays) {
